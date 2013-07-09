@@ -5,5 +5,5 @@ POC SPM with angular
 
 Don't forget to 
 
-1. ` node install `
+1. ` npm install `
 2. ` bower install `
