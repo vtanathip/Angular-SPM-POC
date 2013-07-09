@@ -3,7 +3,7 @@ Angular SPM Prove Of Concept
 
 POC SPM with angular
 
-Don't forget to 
+run this with following step
 
 1. ` npm install `
 2. ` bower install `
