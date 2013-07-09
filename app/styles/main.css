@@ -1,0 +1,65 @@
+body{
+    background: #555555;
+    background: -webkit-gradient(radial, center center, 10, center center, 600, from(#fff), to(#eee));
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    position: relative;
+}
+    #app-view{
+        height: 768px;
+    }
+    .app-title{
+        color: #ff0000;
+    }
+        .single-btn{
+            position: absolute;
+            top: 50%;
+            width: 200px;
+            height: 100px;
+            margin-top: -50px;
+        }
+            .single-btn a{
+                text-decoration: none;
+            }
+    #topup-main{
+        position: absolute;
+        top: 20%;
+    }
+    #footer-wrapper{
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 20px;
+    }
+        #footer-wrapper a{
+            margin-left: 10px;
+        }
+/* Tools */
+.default-btn {
+    -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+    background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+    background-color:#ededed;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    color:#777777;
+    font-family:arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:1px 1px 0px #ffffff;
+}.default-btn:hover {
+     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+     background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+     background-color:#dfdfdf;
+ }.default-btn:active {
+      position:relative;
+      top:1px;
+  }
