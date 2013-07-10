@@ -1,8 +1,5 @@
 'use strict';
 
-// declare a module
-var myAppModule = angular.module('myApp', []);
-
 angular.module('angularSPMApp')
       .controller('MainCtrl', function ($scope) {
 
