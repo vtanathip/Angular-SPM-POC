@@ -12,9 +12,11 @@ angular.module('angularSPMApp')
 
 angular.module('angularSPMApp')
     .controller('TopUpTrueMoveCtrl', function ($scope, keypad) {
+        $scope.mobileno = [];
         $scope.activeKeypad = function(number){
             console.log("key pad press " + number);
-            $scope.mobilephone = keypad.numberBuilder(number);
+            keypad.numberBuilder($scope,number);
+            console.log("data in array " + $scope.mobileno);
         }
     });
 
