@@ -20,7 +20,6 @@ app.directive('numpad',function(){
                                 + "<li><span class='span1 number-btn' ng-click='activeKeypad(9)'>9</span></li>"
                                 + "<li><span class='span1 number-btn' ng-click='activeKeypad(-1)'>ลบ</span></li>"
                                 + "<li><span class='span1 number-btn' ng-click='activeKeypad(0)'>0</span></li>"
-                                + "<li><span class='span1 number-btn' ng-click='activeKeypad(-2)'>.</span></li>"
                             + "</ul>"
                         + "</div>"
                     + "</div>"

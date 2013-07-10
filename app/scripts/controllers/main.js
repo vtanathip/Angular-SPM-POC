@@ -14,9 +14,12 @@ angular.module('angularSPMApp')
     .controller('TopUpTrueMoveCtrl', function ($scope, keypad) {
         $scope.mobileno = [];
         $scope.activeKeypad = function(number){
-            console.log("key pad press " + number);
-            keypad.numberBuilder($scope,number);
-            console.log("data in array " + $scope.mobileno);
+            if(number == -1){
+                keypad.remove($scope);
+            }else if( $scope.mobileno.length < 12 ){
+                keypad.add($scope,number);
+                keypad.formatMobile($scope);
+            }
         }
     });
 
