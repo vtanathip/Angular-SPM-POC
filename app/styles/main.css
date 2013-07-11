@@ -33,6 +33,11 @@ body{
         #footer-wrapper a{
             margin-left: 10px;
         }
+.text-center{
+    top: 40%;
+    position: absolute;
+    left: -15%;
+}
 
 /* modules */
 .keypad-wrapper{

@@ -11,7 +11,7 @@ angular.module('angularSPMApp')
     });
 
 angular.module('angularSPMApp')
-    .controller('TopUpTrueMoveCtrl', function ($scope, keypad, $location) {
+    .controller('TopUpTrueMoveCtrl', function ($scope, keypad, $location, $rootScope) {
         $scope.mobileno = [];
         $scope.activeKeypad = function(number){
             if(number == -1){
@@ -23,9 +23,18 @@ angular.module('angularSPMApp')
         }
         $scope.submitForm = function(){
             if(typeof $scope.mobileTextView == "undefined" || $scope.mobileTextView.length < 12){
-                $scope.error = "Not enough number";
-            }else{
-                //should $http to tomcat server in this step the route to result
+                $scope.error = "Wrong format mobile.";
+            }else if( $scope.mobileTextView.match(/0[8-9]\d{1}-\d{3}-\d{4}/) ){
+
+                //should $http to tomcat server
+                //do somethings
+                //if ok routes to result ,if not show error.
+                if($scope.mobileTextView == "086-818-5055"){
+                    $rootScope.resultData = {mobileno : $scope.mobileTextView , textColor : "text-info" , result : "สําเร็จ"};
+                }else{
+                    $rootScope.resultData = {mobileno : $scope.mobileTextView , textColor : "text-error" , result : "ไม่สําเร็จ"};
+                }
+
                 var forwardPath = $location.$$url;
                 var routeTo = forwardPath.replace("/truemove","/result");
                 $scope.error = "";
@@ -35,8 +44,11 @@ angular.module('angularSPMApp')
     });
 
 angular.module('angularSPMApp')
-    .controller('TopUpResultCtrl', function ($scope) {
+    .controller('TopUpResultCtrl', function ($scope, $rootScope) {
         console.log("i m in result controller");
+        console.log($rootScope.resultData);
+
+
     });
 
 angular.module('angularSPMApp')
