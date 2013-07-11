@@ -11,7 +11,7 @@ angular.module('angularSPMApp')
     });
 
 angular.module('angularSPMApp')
-    .controller('TopUpTrueMoveCtrl', function ($scope, keypad) {
+    .controller('TopUpTrueMoveCtrl', function ($scope, keypad, $location) {
         $scope.mobileno = [];
         $scope.activeKeypad = function(number){
             if(number == -1){
@@ -21,11 +21,22 @@ angular.module('angularSPMApp')
                 keypad.formatMobile($scope);
             }
         }
+        $scope.submitForm = function(){
+            if(typeof $scope.mobileTextView == "undefined" || $scope.mobileTextView.length < 12){
+                $scope.error = "Not enough number";
+            }else{
+                //should $http to tomcat server in this step the route to result
+                var forwardPath = $location.$$url;
+                var routeTo = forwardPath.replace("/truemove","/result");
+                $scope.error = "";
+                $location.path(routeTo);
+            }
+        }
     });
 
 angular.module('angularSPMApp')
     .controller('TopUpResultCtrl', function ($scope) {
-
+        console.log("i m in result controller");
     });
 
 angular.module('angularSPMApp')
