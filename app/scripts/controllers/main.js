@@ -39,6 +39,8 @@ angular.module('angularSPMApp')
                 var routeTo = forwardPath.replace("/truemove","/result");
                 $scope.error = "";
                 $location.path(routeTo);
+            }else{
+                $scope.error = "Wrong format mobile.";
             }
         }
     });
