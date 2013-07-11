@@ -2,7 +2,7 @@
 
 angular.module('angularSPMApp')
       .controller('MainCtrl', function ($scope) {
-
+        $scope.awesomeThings = ["a","b","c"];
     });
 
 angular.module('angularSPMApp')
