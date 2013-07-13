@@ -23,4 +23,11 @@ describe('Controller: TopUpTrueMoveCtrl', function () {
         expect(scope.mobileno.length).toBe(0);
     });
 
+    it('should have activeKeypad function', function () {
+        //scope shouldn't null
+        expect(scope).not.toBeNull();
+
+        expect(scope.activeKeypad).not.toBeNull();
+    });
+
 });
