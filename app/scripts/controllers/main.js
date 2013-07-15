@@ -11,16 +11,8 @@ angular.module('angularSPMApp')
     });
 
 angular.module('angularSPMApp')
-    .controller('TopUpTrueMoveCtrl', function ($scope, keypad, $location, $rootScope) {
-        $scope.mobileno = [];
-        $scope.activeKeypad = function(number){
-            if(number == -1){
-                keypad.remove($scope);
-            }else if( $scope.mobileno.length < 12 ){
-                keypad.add($scope,number);
-                keypad.formatMobile($scope);
-            }
-        }
+    .controller('TopUpTrueMoveCtrl', function ($scope, $location, $rootScope) {
+
         $scope.submitForm = function(){
             if(typeof $scope.mobileTextView == "undefined" || $scope.mobileTextView.length < 12){
                 $scope.error = "Wrong format mobile.";

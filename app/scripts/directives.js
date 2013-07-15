@@ -9,20 +9,41 @@ app.directive('numpad',function(){
                     + "<div class='keypad keypad-bg'>"
                         + "<div class='numpad'>"
                             + "<ul>"
-                                + "<li><span class='span1 number-btn' ng-click='activeKeypad(1)'>1</span></li>"
-                                + "<li><span class='span1 number-btn' ng-click='activeKeypad(2)'>2</span></li>"
-                                + "<li><span class='span1 number-btn' ng-click='activeKeypad(3)'>3</span></li>"
-                                + "<li><span class='span1 number-btn' ng-click='activeKeypad(4)'>4</span></li>"
-                                + "<li><span class='span1 number-btn' ng-click='activeKeypad(5)'>5</span></li>"
-                                + "<li><span class='span1 number-btn' ng-click='activeKeypad(6)'>6</span></li>"
-                                + "<li><span class='span1 number-btn' ng-click='activeKeypad(7)'>7</span></li>"
-                                + "<li><span class='span1 number-btn' ng-click='activeKeypad(8)'>8</span></li>"
-                                + "<li><span class='span1 number-btn' ng-click='activeKeypad(9)'>9</span></li>"
-                                + "<li><span class='span1 number-btn' ng-click='activeKeypad(-1)'>ลบ</span></li>"
-                                + "<li><span class='span1 number-btn' ng-click='activeKeypad(0)'>0</span></li>"
+                                + "<li><span class='span1 number-btn' vt-click='1'>1</span></li>"
+                                + "<li><span class='span1 number-btn' vt-click='2'>2</span></li>"
+                                + "<li><span class='span1 number-btn' vt-click='3'>3</span></li>"
+                                + "<li><span class='span1 number-btn' vt-click='4'>4</span></li>"
+                                + "<li><span class='span1 number-btn' vt-click='5'>5</span></li>"
+                                + "<li><span class='span1 number-btn' vt-click='6'>6</span></li>"
+                                + "<li><span class='span1 number-btn' vt-click='7'>7</span></li>"
+                                + "<li><span class='span1 number-btn' vt-click='8'>8</span></li>"
+                                + "<li><span class='span1 number-btn' vt-click='9'>9</span></li>"
+                                + "<li><span class='span1 number-btn' vt-click='-1'>ลบ</span></li>"
+                                + "<li><span class='span1 number-btn' vt-click='0'>0</span></li>"
                             + "</ul>"
                         + "</div>"
                     + "</div>"
-                + "</div>"
+                + "</div>",
+        link: function (scope){
+            scope.mobileno = [];
+        }
+    }
+});
+
+app.directive('vtClick',function(keypad){
+    return {
+        restrict: "A",
+        link: function (scope, element, attrs){
+            element.bind("click", function () {
+                var number = attrs.vtClick;
+                if(number == -1){
+                    keypad.remove(scope);
+                }else if( scope.mobileno.length < 12 ){
+                    keypad.add(scope,number);
+                    keypad.formatMobile(scope);
+                }
+                scope.$apply();
+            });
+        }
     }
 });
