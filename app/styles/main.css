@@ -14,7 +14,6 @@ body{
         .single-btn{
             position: absolute;
             top: 50%;
-            width: 200px;
             height: 100px;
             margin-top: -50px;
         }

@@ -19,6 +19,10 @@ angular.module('angularSPMApp', [])
         templateUrl: 'views/topup-result.html',
         controller: 'TopUpResultCtrl'
       })
+      .when('/scan',{
+        templateUrl: 'views/scan.html',
+        controller: 'scanCtrl'
+      })
       .when('/back/:firstpage',{template: " ",controller: 'BackCtrl'})
       .when('/back/:firstpage/:secondpage',{template: " ",controller: 'BackCtrl'})
       .otherwise({

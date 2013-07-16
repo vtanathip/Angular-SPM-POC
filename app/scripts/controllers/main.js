@@ -46,11 +46,19 @@ angular.module('angularSPMApp')
     });
 
 angular.module('angularSPMApp')
-    .controller('TopUpResultCtrl', function ($scope, $rootScope) {
+    .controller('TopUpResultCtrl', function ($scope, $rootScope, $http) {
         console.log("i m in result controller");
         console.log($rootScope.resultData);
 
-
+        $http({method: 'GET' , url: 'http://127.0.0.1:8585/kiosk-barcode-scanner-web-1.0.0-SNAPSHOT/test/json/scan'}).
+            success(function(data, status) {
+                $scope.status = status;
+                $scope.data = data;
+        }).
+        error(function(data, status) {
+            $scope.data = data || "Request failed";
+            $scope.status = status;
+        });
     });
 
 angular.module('angularSPMApp')
@@ -58,4 +66,19 @@ angular.module('angularSPMApp')
         var backPath = $location.$$url;
         var routeTo =backPath.replace("/back","");
         $location.path(routeTo);
+    });
+
+angular.module('angularSPMApp')
+    .controller('scanCtrl', function ($scope,$http) {
+
+        $http({method: 'POST' , url: 'http://127.0.0.1:8585/kiosk-barcode-scanner-web-1.0.0-SNAPSHOT/test/scan', data : '{ "command": "scan" }'}).
+            success(function(data, status) {
+                $scope.status = status;
+                $scope.data = data;
+            }).
+            error(function(data, status) {
+                $scope.data = data || "Request failed";
+                $scope.status = status;
+            });
+
     });
